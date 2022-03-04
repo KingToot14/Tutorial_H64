@@ -8,7 +8,8 @@ void bhv_nup_interact(void) {
 #endif
 #endif
         if (gMarioState->action & ACT_GROUND_POUND || gMarioState->action & ACT_GROUND_POUND_LAND) gMarioState->numLives += o->oBehParams2ndByte * 2;
-        else (gMarioState->action & ACT_GROUND_POUND || gMarioState->action & ACT_GROUND_POUND_LAND) gMarioState->numLives += o->oBehParams2ndByte;
+        else gMarioState->numLives += o->oBehParams2ndByte;
+
 #ifdef SAVE_NUM_LIVES
         save_file_set_num_lives(gMarioState->numLives);
 #endif
