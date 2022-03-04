@@ -1,0 +1,31 @@
+# How to create/edit levels:
+
+ - Open Blender and level file
+ - Edit Geometry
+ - Select the root level object
+ - Export to the correct level
+
+Extra Tips:
+ - None
+
+
+# How to create/edit behaviors:
+
+Behavior Params:
+ - 1: o->oBehParams >> 24
+ - 2: o->oBehParams2ndByte
+ - 3: o->oBehParams >> 8 & 0xFF
+ - 4: o->oBehParams & 0xFF
+
+Files to Edit:
+ - <obj-name>.inc.c
+ - behavior_actions.c
+ - behavior_actions.h
+ - behavior_data.c
+ - behavior_data.h
+
+Edit the Files in <obj-name>.inc.c
+include file in behavior_actions.c              #include "<obj-name>.inc.c"
+Define functions in behavior_actions.h          void bhv_<obj-function>(void);
+Define behavior in behvaior_data.c              const BehaviorScript <obj-behavior>[] = {};
+Extern behavior to behavior_data.h              extern const BehaviorData <obj-behavior>
